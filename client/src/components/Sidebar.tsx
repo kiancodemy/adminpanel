@@ -1,7 +1,9 @@
 import React from "react";
+import profile from "../assets/profile.jpeg";
 export type set = {
   open: Boolean;
   setopen: React.Dispatch<React.SetStateAction<boolean>>;
+  data: any;
 };
 import {
   Box,
@@ -11,6 +13,7 @@ import {
   List,
   ListItem,
   ListItemButton,
+  Avatar,
   ListItemIcon,
   ListItemText,
   Typography,
@@ -34,7 +37,7 @@ import {
 } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-export default function Sidebar({ open, setopen }: set) {
+export default function Sidebar({ open, setopen, data }: set) {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const [active, setactive] = useState<string>("");
@@ -148,7 +151,10 @@ export default function Sidebar({ open, setopen }: set) {
           {navItems.map((text: any, index: number) => (
             <ListItem
               sx={{ backgroundColor: active === text.text ? "#FFC700" : "" }}
-              onClick={() => navigate(`/${text.text}`)}
+              onClick={() => {
+                navigate(`/${text.text}`);
+                setopen(false);
+              }}
               key={text}
               disablePadding
             >
@@ -163,6 +169,38 @@ export default function Sidebar({ open, setopen }: set) {
             </ListItem>
           ))}
         </List>
+        <Box
+          sx={{
+            backgroundColor: "#102C57",
+            display: "flex",
+            paddingY: "30px",
+            paddingX: "20px",
+            justifyContent: "center",
+            gap: "10px",
+          }}
+        >
+          <Avatar
+            sx={{ objectFit: "cover", height: 40, width: 40 }}
+            alt="Remy Sharp"
+            src={profile}
+          ></Avatar>
+          <Box
+            sx={{
+              display: "flex",
+              color: "white",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <Typography sx={{ fontSize: "14px", fontWeight: "bold" }}>
+              {data.name}
+            </Typography>
+            <Typography sx={{ fontSize: "14px" }}>{data.occupation}</Typography>
+          </Box>
+          <IconButton sx={{ color: "white" }}>
+            <SettingsOutlined sx={{ fontSize: "20px" }}></SettingsOutlined>
+          </IconButton>
+        </Box>
       </Drawer>
     </Box>
   );

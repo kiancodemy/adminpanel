@@ -1,23 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export interface CounterState {
-  mode: string;
+  id: string;
 }
 
 const initialState: CounterState = {
-  mode: "dark",
+  id: "63701cc1f03239b7f700000e",
 };
 
 export const setmode = createSlice({
-  name: "dark",
+  name: "user",
   initialState,
   reducers: {
-    setmodes: (state) => {
-      state.mode = state.mode === "light" ? "dark" : "light";
+    finder: (state: any) => {
+      state.id = "1";
     },
   },
 });
 
-export const { setmodes } = setmode.actions;
+export const { finder } = setmode.actions;
 
 export default setmode.reducer;

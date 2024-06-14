@@ -9,14 +9,17 @@ const app = express();
 
 import client from "./routes/client.js";
 import sale from "./routes/sale.js";
-import general from "./routes/general.js";
+import generals from "./routes/general.js";
+
 import management from "./routes/management.js";
-app.use(express.json());
+connect();
 app.use(cors());
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/client", client);
 app.use("/management", management);
 app.use("/sale", sale);
-app.use("/general", general);
-
-connect();
+app.use("/general", generals);
+app.listen(process.env.PORT, () => {
+  console.log("app connected");
+});
