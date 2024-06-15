@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import helmet from "helmet";
 import morgan from "morgan";
+
 dotenv.config();
 import { connect } from "./connect/connect.js";
 const app = express();
@@ -12,10 +13,12 @@ import sale from "./routes/sale.js";
 import generals from "./routes/general.js";
 
 import management from "./routes/management.js";
+
 connect();
+
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+
 app.use("/client", client);
 app.use("/management", management);
 app.use("/sale", sale);
