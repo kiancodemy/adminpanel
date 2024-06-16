@@ -6,6 +6,9 @@ const userapi = emptySplitApi.injectEndpoints({
       query: (id: string) => `general/users/${id}`,
       providesTags: ["users"],
     }),
+    Getcustomers: build.query({
+      query: () => `general/customers`,
+    }),
     Getproducts: build.query({
       query: () => `client/products`,
       providesTags: ["products"],
@@ -13,4 +16,8 @@ const userapi = emptySplitApi.injectEndpoints({
   }),
 });
 
-export const { useGetuserByIdQuery, useGetproductsQuery } = userapi;
+export const {
+  useGetuserByIdQuery,
+  useGetproductsQuery,
+  useGetcustomersQuery,
+} = userapi;

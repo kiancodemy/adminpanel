@@ -2,30 +2,15 @@ import { useGetproductsQuery } from "../slices/userapi";
 import React, { useState } from "react";
 import { items } from "../components/Item";
 import Item from "../components/Item";
-import {
-  Box,
-  Card,
-  CardActions,
-  CardContent,
-  Collapse,
-  Button,
-  Typography,
-  Rating,
-  useTheme,
-  useMediaQuery,
-  Grid,
-} from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import Header from "../components/Header";
 import { Repeat } from "@mui/icons-material";
 export default function Products() {
   ///query function
   const { data, isLoading } = useGetproductsQuery("");
-  if (data) {
-    console.log(data);
-  }
-
+ 
   ///all of products
-  cancelIdleCallback;
+ 
   return (
     <Box>
       <Header title="products" subtitle="this is the list of products"></Header>
@@ -35,7 +20,7 @@ export default function Products() {
             marginTop: "20px",
             display: "grid",
             gridTemplateColumns: {
-              xs: "repeat(1,1f)",
+              xs: "repeat(1,100%)",
               sm: "repeat(2,1fr)",
               md: "repeat(4,1fr)",
             },

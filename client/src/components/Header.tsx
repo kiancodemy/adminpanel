@@ -34,10 +34,10 @@ export default function Header({ title, subtitle }) {
           textTransform: "uppercase",
         }}
       >
-        products
+        {title}
       </Typography>
       <Typography sx={{ fontSize: "15px", textTransform: "capitalize" }}>
-        this is list of products
+        {subtitle}
       </Typography>
     </Box>
   );
