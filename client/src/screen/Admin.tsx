@@ -1,11 +1,10 @@
 import React from "react";
-import { useGetcustomersQuery } from "../slices/userapi";
+import Header from "components/Header";
+import React from "react";
+import {  useGetadminQuery } from "../slices/userapi";
 
 import { useState } from "react";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
-
-import { Box } from "@mui/material";
-import Header from "../components/Header";
 
 const columns: GridColDef[] = [
   { field: "_id", headerName: "_id", width: 250 },
@@ -18,7 +17,7 @@ const columns: GridColDef[] = [
 ];
 
 export default function Cuatomers() {
-  const { data: info, isLoading } = useGetcustomersQuery("");
+  const { data: info, isLoading } =useGetadminQuery("");
 
   return (
     <Box>
@@ -27,7 +26,7 @@ export default function Cuatomers() {
       <Box
         sx={{
           marginTop: "20px",
-          overflowX: "auto", // Enable horizontal scrolling
+          overflowX: "auto",
 
           height: "80vh",
 

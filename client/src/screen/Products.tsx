@@ -8,9 +8,9 @@ import { Repeat } from "@mui/icons-material";
 export default function Products() {
   ///query function
   const { data, isLoading } = useGetproductsQuery("");
- 
+
   ///all of products
- 
+
   return (
     <Box>
       <Header title="products" subtitle="this is the list of products"></Header>
@@ -68,6 +68,7 @@ export default function Products() {
             textTransform: "capitalize",
             fontWeight: "bold",
             fontSize: "30px",
+            color: "white",
             textAlign: "center",
             marginTop: "20px",
           }}

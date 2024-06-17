@@ -3,9 +3,6 @@ import express from "express";
 const app = express();
 import dotenv from "dotenv";
 dotenv.config();
-import { dataProductStat } from "../data/index.js";
-
-import { Productstat } from "../models/productstat.js";
 
 export const connect = async () => {
   try {

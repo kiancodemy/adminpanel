@@ -63,10 +63,7 @@ export default function Sidebar({ open, setopen, data }: set) {
       text: "Transactions",
       icon: <ReceiptLongOutlined />,
     },
-    {
-      text: "Geography",
-      icon: <PublicOutlined />,
-    },
+
     {
       text: "Sales",
       icon: null,
@@ -75,14 +72,7 @@ export default function Sidebar({ open, setopen, data }: set) {
       text: "Overview",
       icon: <PointOfSaleOutlined />,
     },
-    {
-      text: "Daily",
-      icon: <TodayOutlined />,
-    },
-    {
-      text: "Monthly",
-      icon: <CalendarMonthOutlined />,
-    },
+
     {
       text: "Breakdown",
       icon: <PieChartOutlined />,

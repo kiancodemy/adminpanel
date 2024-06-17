@@ -52,41 +52,6 @@ export default function Item({
 
       <Rating sx={{ marginY: "15px" }} value={rating} readOnly></Rating>
       <Typography sx={{ fontSize: "14px" }}>{description}</Typography>
-      <Button
-        sx={{
-          textTransform: "uppercase",
-          marginY: "10px",
-          alignSelf: "start",
-          color: "white",
-        }}
-        onClick={() => {
-          setopen((prev) => !prev);
-        }}
-      >
-        see more
-      </Button>
-      {open && (
-        <Box
-          sx={{
-            marginY: "10px",
-            overflowWrap: "break-word",
-            display: "flex",
-            flexDirection: "column",
-            gap: "5px",
-          }}
-        >
-          <Typography sx={{ whiteSpace: "wrap" }}>id:{_id}</Typography>
-          <Typography sx={{ textTransform: "capitalize" }}>
-            supply left: {supply}
-          </Typography>
-          <Typography sx={{ textTransform: "capitalize" }}>
-            yearly sale:{state[0].yearlySalesTotal}
-          </Typography>
-          <Typography sx={{ textTransform: "capitalize" }}>
-            yearly sale:{state[0].yearlyTotalSoldUnits}
-          </Typography>
-        </Box>
-      )}
     </Box>
   );
 }
