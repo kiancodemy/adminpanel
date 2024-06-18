@@ -22,10 +22,10 @@ import {
 
 export default function Transactions() {
   const [page, setpage] = useState(1);
-  const [pagesize, setpagesize] = useState(20);
+
   const [sort, setsort] = useState("");
-  const [search, setsearch] = useState("");
-  const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+
+  const handleChange = (value: any) => {
     setpage(value);
   };
   function CustomToolbar() {

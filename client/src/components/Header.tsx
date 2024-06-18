@@ -13,9 +13,13 @@ import {
   useTheme,
 } from "@mui/material";
 
-import React from "react";
-//"#102C57"//
-export default function Header({ title, subtitle }) {
+
+
+type name = {
+  title: string;
+  subtitle: string;
+};
+export default function Header({ title, subtitle }: name) {
   return (
     <Box
       sx={{

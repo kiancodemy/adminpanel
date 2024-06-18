@@ -1,4 +1,4 @@
-import React from "react";
+
 export type items = {
   _id: string;
   name: string;
@@ -11,7 +11,7 @@ export type items = {
   state: any;
 };
 import { useState } from "react";
-import { Grid, Rating, Typography, Button, Box } from "@mui/material";
+import { Rating, Typography, Box } from "@mui/material";
 
 export default function Item({
   _id,
@@ -20,11 +20,11 @@ export default function Item({
   description,
   category,
   rating,
-  supply,
+ 
 
-  state,
+ 
 }: items) {
-  const [open, setopen] = useState<Boolean>(false);
+ 
   return (
     <Box
       sx={{

@@ -1,7 +1,7 @@
-import React from "react";
+
 import { useGetcustomersQuery } from "../slices/userapi";
 
-import { useState } from "react";
+
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 
 import { Box } from "@mui/material";
