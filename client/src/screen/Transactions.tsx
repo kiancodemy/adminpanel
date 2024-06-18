@@ -19,7 +19,7 @@ import {
   GridToolbarExport,
   GridToolbarDensitySelector,
 } from "@mui/x-data-grid";
-import Overviewchart from "components/Overviewchart";
+
 export default function Transactions() {
   const [page, setpage] = useState(1);
   const [pagesize, setpagesize] = useState(20);
@@ -94,21 +94,23 @@ export default function Transactions() {
   });
 
   const columns: GridColDef[] = [
-    { field: "_id", headerName: "_id", width: 150, flex: 1 },
-    { field: "userId", headerName: "userId", width: 150, flex: 1 },
+    { field: "_id", headerName: "_id", minWidth: 300 },
+    { field: "userId", headerName: "userId", width: 250 },
     {
       field: "cost",
+      width: 250,
       headerName: " cost",
-      width: 100,
+
       renderCell: (params) => `$${Number(params.value).toFixed(2)}`,
     },
     {
       field: "products",
+      minWidth: 150,
       headerName: "products",
-      width: 80,
+
       renderCell: (params: any) => params.value.length,
     },
-    { field: "createdAt", headerName: " createdAt", width: 250, flex: 1 },
+    { field: "createdAt", headerName: " createdAt", minWidth: 350 },
   ];
 
   return (
@@ -121,6 +123,7 @@ export default function Transactions() {
         sx={{
           marginTop: "20px",
           overflowX: "auto",
+          backgroundColor: "#102C57",
           maxWidth: "100%",
         }}
       >
@@ -135,6 +138,7 @@ export default function Transactions() {
           sx={{
             "& .MuiDataGrid-footerContainer": {
               display: "none",
+              backgroundColor: "#102C57",
             },
             "& .MuiSvgIcon-root": {
               color: "white",

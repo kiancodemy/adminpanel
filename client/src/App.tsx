@@ -3,6 +3,7 @@ import { Navigate } from "react-router-dom";
 import Layout from "./components/Layout";
 import { Box } from "@mui/material";
 import Products from "./screen/Products";
+import Admin from "./screen/Admin";
 import Dashboard from "./screen/Dashboard";
 import Cuatomers from "./screen/Cuatomers";
 import Overview from "./screen/Overview";
@@ -25,6 +26,7 @@ export default function App() {
               element={<Transactions></Transactions>}
             ></Route>
             <Route path="/Overview" element={<Overview></Overview>}></Route>
+            <Route path="/Admin" element={<Admin></Admin>}></Route>
           </Route>
         </Routes>
       </BrowserRouter>

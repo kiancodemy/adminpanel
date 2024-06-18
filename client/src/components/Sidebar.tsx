@@ -1,7 +1,7 @@
 import React from "react";
 import profile from "../assets/profile.jpeg";
 export type set = {
-  open: Boolean;
+  open: any;
   setopen: React.Dispatch<React.SetStateAction<boolean>>;
   data: any;
 };
@@ -17,23 +17,16 @@ import {
   ListItemIcon,
   ListItemText,
   Typography,
-  useTheme,
 } from "@mui/material";
 import {
   SettingsOutlined,
-  ChevronLeft,
   ChevronRightOutlined,
   HomeOutlined,
   ShoppingCartOutlined,
   Groups2Outlined,
   ReceiptLongOutlined,
-  PublicOutlined,
   PointOfSaleOutlined,
-  TodayOutlined,
-  CalendarMonthOutlined,
   AdminPanelSettingsOutlined,
-  TrendingUpOutlined,
-  PieChartOutlined,
 } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -74,20 +67,12 @@ export default function Sidebar({ open, setopen, data }: set) {
     },
 
     {
-      text: "Breakdown",
-      icon: <PieChartOutlined />,
-    },
-    {
       text: "Management",
       icon: null,
     },
     {
       text: "Admin",
       icon: <AdminPanelSettingsOutlined />,
-    },
-    {
-      text: "Performance",
-      icon: <TrendingUpOutlined />,
     },
   ];
 
@@ -96,14 +81,27 @@ export default function Sidebar({ open, setopen, data }: set) {
   }, [pathname]);
 
   return (
-    <Box sx={{ width: "250px", backgroundColor: "#102C57" }}>
+    <Box
+      sx={{
+        position: { xs: "fixed", md: "relative" },
+        zIndex: 10,
+        top: "0px",
+        left: "0px",
+        bottom: "0px",
+        right: "0px",
+        width: { xs: "100vw", md: "250px" },
+
+        backgroundColor: "#102C57",
+      }}
+    >
       <Drawer
         sx={{
           backgroundColor: "#102C57",
           color: "white",
           "& .MuiDrawer-paper": {
             boxSizing: "border-box",
-            width: "250px",
+            width: { xs: "100vw", md: "250px" },
+            minHeight: "100vh",
           },
         }}
         variant="persistent"
@@ -141,14 +139,15 @@ export default function Sidebar({ open, setopen, data }: set) {
           {navItems.map((text: any, index: number) => (
             <ListItem
               sx={{ backgroundColor: active === text.text ? "#FFC700" : "" }}
-              onClick={() => {
-                navigate(`/${text.text}`);
-                setopen(false);
-              }}
               key={text}
               disablePadding
             >
-              <ListItemButton>
+              <ListItemButton
+                onClick={() => {
+                  setopen(false);
+                  text.icon && navigate(`/${text.text}`);
+                }}
+              >
                 {text.icon && (
                   <ListItemIcon sx={{ color: "white" }}>
                     {text.icon}

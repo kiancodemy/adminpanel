@@ -1,23 +1,23 @@
 import React from "react";
-import Header from "components/Header";
-import React from "react";
-import {  useGetadminQuery } from "../slices/userapi";
+import Header from "../components/Header";
+import Overview from "./Overview";
+import { useGetadminQuery } from "../slices/userapi";
+import { Box } from "@mui/material";
 
-import { useState } from "react";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 
 const columns: GridColDef[] = [
   { field: "_id", headerName: "_id", width: 250 },
-  { field: "name", headerName: "name", width: 100 },
+  { field: "name", headerName: "name", width: 130 },
   { field: "email", headerName: " email", width: 250 },
-  { field: "country", headerName: "country", width: 100 },
-  { field: "occupation", headerName: " occupation", width: 250 },
-  { field: "phoneNumber", headerName: "phoneNumber", width: 100 },
-  { field: "role", headerName: " role", flex: 1 },
+  { field: "country", headerName: "country", width: 150 },
+  { field: "occupation", headerName: " occupation", width: 150 },
+  { field: "phoneNumber", headerName: "phoneNumber", width: 160 },
+  { field: "role", headerName: " role", width: 100, flex: 1 },
 ];
 
-export default function Cuatomers() {
-  const { data: info, isLoading } =useGetadminQuery("");
+export default function Admin() {
+  const { data: info, isLoading } = useGetadminQuery("");
 
   return (
     <Box>

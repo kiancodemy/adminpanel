@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import profile from "../assets/profile.jpeg";
 import {
-  LightModeOutlined,
-  DarkModeOutlined,
+  
   Menu as MenuIcon,
   Search,
   SettingsOutlined,
@@ -10,19 +9,17 @@ import {
 } from "@mui/icons-material";
 import {
   AppBar,
-  Button,
+
   Box,
   Typography,
   IconButton,
   InputBase,
   Toolbar,
   Avatar,
-  Menu,
-  MenuItem,
-  useTheme,
+ 
 } from "@mui/material";
 
-import { useDispatch } from "react-redux";
+
 export default function Navbar({
   setopen,
   data,

@@ -5,14 +5,16 @@ import {
   CartesianGrid,
   XAxis,
   YAxis,
+  ResponsiveContainer,
   Tooltip,
 } from "recharts";
+
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useGetsalesQuery } from "../slices/userapi";
 import { useMemo } from "react";
-import { Box } from "@mui/material";
-type chart = { view: string };
-export default function Overviewchart({ view }: chart) {
+import { Box, Typography } from "@mui/material";
+type chart = { view: string; dashboard: Boolean };
+export default function Overviewchart({ view, dashboard = false }: chart) {
   const { data, isLoading } = useGetsalesQuery("");
 
   const [data1, data2] = useMemo(() => {
@@ -39,27 +41,40 @@ export default function Overviewchart({ view }: chart) {
     );
 
     return [data1, data2];
-  }, [data]);
+  }, [data, isLoading]);
 
-  if (data1) {
-    console.log(data1, data2);
-  }
   const matches = useMediaQuery("(min-width:780px)");
 
   return (
-    <Box>
-      <LineChart
-        margin={{ left: 20, top: 25, bottom: 20 }}
-        width={matches ? 900 : 340}
-        height={400}
-        data={view === "sales" ? data1 : data2}
-      >
-        <Line type="monotone" dataKey="y" stroke="#fff" />
-        <CartesianGrid stroke="#fff" />
-        <XAxis stroke="#fff" dataKey="x" />
-        <YAxis stroke="#fff" />
-        <Tooltip />
-      </LineChart>
+    <Box sx={{ marginTop: "10px" }}>
+      {isLoading ? (
+        <Box>
+          <Typography
+            variant="h4"
+            sx={{
+              color: "white",
+              textAlign: "center",
+              marginTop: "20px",
+              textTransform: "capitalize",
+            }}
+          >
+            loading......
+          </Typography>
+        </Box>
+      ) : (
+        <LineChart
+          margin={{ left: 20, top: 25, bottom: 20 }}
+          data={view === "sales" ? data1 : data2}
+          height={400}
+          width={matches && dashboard ? 700 : matches ? 1100 : 330}
+        >
+          <Line type="monotone" dataKey="y" stroke="#fff" />
+          <CartesianGrid stroke="#fff" />
+          <XAxis stroke="#fff" dataKey="x" />
+          <YAxis stroke="#fff" />
+          <Tooltip />
+        </LineChart>
+      )}
     </Box>
   );
 }

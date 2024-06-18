@@ -1,5 +1,5 @@
 import { Product } from "../models/product.js";
-import { Productstat } from "../models/productstat.js";
+
 import Transaction from "../models/transactions.js";
 export const getproucts = async (req, res) => {
   try {

@@ -16,12 +16,12 @@ export default function Layout() {
   const { id } = useSelector((state: RootState) => state.setter);
 
   ///query function for getting user by id
-  const { data, isLoading } = useGetuserByIdQuery(id);
+  const { data } = useGetuserByIdQuery(id);
 
   const [open, setopen] = useState(false);
   return (
     <Box sx={{ display: notmobile ? "flex" : "block" }}>
-      {notmobile && open && (
+      {open && (
         <Sidebar data={data || {}} open={open} setopen={setopen}></Sidebar>
       )}
       <Box sx={{ flexGrow: 1 }}>

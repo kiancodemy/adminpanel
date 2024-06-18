@@ -9,25 +9,25 @@ import Header from "../components/Header";
 
 const columns: GridColDef[] = [
   { field: "_id", headerName: "_id", width: 250 },
-  { field: "name", headerName: "name", width: 100 },
+  { field: "name", headerName: "name", width: 130 },
   { field: "email", headerName: " email", width: 250 },
-  { field: "country", headerName: "country", width: 100 },
-  { field: "occupation", headerName: " occupation", width: 250 },
-  { field: "phoneNumber", headerName: "phoneNumber", width: 100 },
-  { field: "role", headerName: " role", flex: 1 },
+  { field: "country", headerName: "country", width: 150 },
+  { field: "occupation", headerName: " occupation", width: 150 },
+  { field: "phoneNumber", headerName: "phoneNumber", width: 160 },
+  { field: "role", headerName: " role", width: 100, flex: 1 },
 ];
 
 export default function Cuatomers() {
   const { data: info, isLoading } = useGetcustomersQuery("");
 
   return (
-    <Box>
+    <Box sx={{ marginTop: "20px" }}>
       <Header title="customers" subtitle="list of customers"></Header>
 
       <Box
         sx={{
           marginTop: "20px",
-          overflowX: "auto", // Enable horizontal scrolling
+          overflowX: "auto",
 
           height: "80vh",
 
