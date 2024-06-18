@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const emptySplitApi = createApi({
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3000/" }),
+  baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_SOME_KEY }),
   endpoints: () => ({}),
-  tagTypes: ["products","users"],
+  tagTypes: ["products", "users"],
 });
