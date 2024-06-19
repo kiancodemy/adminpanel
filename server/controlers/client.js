@@ -23,12 +23,12 @@ export const gettransactions = async (req, res) => {
     }
     const getit = await Transaction.countDocuments();
 
-    const page = Number(req.query.page);
-    const pagesize = Number(req.query.pagesize);
+    const page = Number(req.query.page) || 1;
+    const pagesize = Number(req.query.pagesize) || 20;
 
     query = query.skip((page - 1) * pagesize).limit(pagesize);
 
-    const number = Math.ceil(getit / pagesize);
+    const number = await Math.ceil(getit / pagesize);
 
     const all = await query;
 

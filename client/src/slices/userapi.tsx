@@ -20,10 +20,10 @@ const userapi = emptySplitApi.injectEndpoints({
       query: () => `sale/sale`,
     }),
     Gettransacations: build.query({
-      query: ({ page, pagesize, sort, search }) =>
+      query: ({ page,sort }) =>
         `client/transactions?page=${page || null}&sort=${
           sort || null
-        }&pagesize=${pagesize || null}&search=${search || null}`,
+        }`,
     }),
   }),
 });

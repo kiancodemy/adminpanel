@@ -7,6 +7,7 @@ import {
   Pagination,
   MenuItem,
   Select,
+  Typography,
 } from "@mui/material";
 import { useGettransacationsQuery } from "../slices/userapi";
 import { useState } from "react";
@@ -25,8 +26,9 @@ export default function Transactions() {
 
   const [sort, setsort] = useState("");
 
-  const handleChange = (value: any) => {
+  const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
     setpage(value);
+    console.log(event);
   };
   function CustomToolbar() {
     return (
@@ -88,10 +90,11 @@ export default function Transactions() {
 
   const { data, isLoading } = useGettransacationsQuery({
     page,
-    pagesize,
     sort,
-    search,
   });
+  if (data) {
+    console.log(data);
+  }
 
   const columns: GridColDef[] = [
     { field: "_id", headerName: "_id", minWidth: 300 },
@@ -119,77 +122,91 @@ export default function Transactions() {
         title="transaction"
         subtitle="this is transaction section"
       ></Header>
-      <Box
-        sx={{
-          marginTop: "20px",
-          overflowX: "auto",
-          backgroundColor: "#102C57",
-          maxWidth: "100%",
-        }}
-      >
-        <DataGrid
-          slots={{
-            toolbar: CustomToolbar,
-          }}
-          loading={isLoading}
-          getRowId={(row: any) => row._id}
-          rows={data?.all || []}
-          columns={columns}
+      {isLoading ? (
+        <Typography
+          variant="h4"
           sx={{
-            "& .MuiDataGrid-footerContainer": {
-              display: "none",
-              backgroundColor: "#102C57",
-            },
-            "& .MuiSvgIcon-root": {
-              color: "white",
-            },
-            "& .MuiDataGrid-columnHeader": {
-              backgroundColor: "#102C57",
-              color: "white",
-            },
-            "& .MuiDataGrid-row , & .Mui-selected": {
-              border: "none",
-              backgroundColor: "#284168",
-            },
-            "& .MuiDataGrid-cell ": {
-              border: "none",
-            },
-            "& .MuiToolbar-root": {
-              color: "white",
-              border: "none",
-            },
-
+            textTransform: "capitalize",
+            textAlign: "center",
+            marginTop: "10px",
             color: "white",
-
-            maxWidth: "95%",
-            marginX: "auto",
-          }}
-        ></DataGrid>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-
-            color: "white",
-            backgroundColor: "#284168",
-            width: "95%",
-            marginX: "auto",
-            paddingY: "10px",
           }}
         >
-          <Pagination
+          loading....
+        </Typography>
+      ) : (
+        <Box
+          sx={{
+            marginTop: "20px",
+            overflowX: "auto",
+            backgroundColor: "#102C57",
+            maxWidth: "100%",
+          }}
+        >
+          <DataGrid
+            slots={{
+              toolbar: CustomToolbar,
+            }}
+            loading={isLoading}
+            getRowId={(row: any) => row._id}
+            rows={data?.all || []}
+            columns={columns}
             sx={{
-              color: "white",
-              "& .MuiButtonBase-root": {
+              "& .MuiDataGrid-footerContainer": {
+                display: "none",
+                backgroundColor: "#102C57",
+              },
+              "& .MuiSvgIcon-root": {
                 color: "white",
               },
+              "& .MuiDataGrid-columnHeader": {
+                backgroundColor: "#102C57",
+                color: "white",
+              },
+              "& .MuiDataGrid-row , & .Mui-selected": {
+                border: "none",
+                backgroundColor: "#284168",
+              },
+              "& .MuiDataGrid-cell ": {
+                border: "none",
+              },
+              "& .MuiToolbar-root": {
+                color: "white",
+                border: "none",
+              },
+
+              color: "white",
+
+              maxWidth: "95%",
+              marginX: "auto",
             }}
-            count={data?.number}
-            page={page}
-            onChange={handleChange}
-          />
+          ></DataGrid>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+
+              color: "white",
+              backgroundColor: "#284168",
+              width: "95%",
+              marginX: "auto",
+              paddingY: "10px",
+            }}
+          >
+            <Pagination
+              sx={{
+                color: "white",
+                "& .MuiButtonBase-root": {
+                  color: "white",
+                },
+              }}
+              count={data.number}
+              page={page}
+              onChange={handleChange}
+            />
+          </Box>
         </Box>
-      </Box>
+      )}
     </Box>
   );
 }

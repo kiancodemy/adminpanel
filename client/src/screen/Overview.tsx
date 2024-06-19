@@ -4,7 +4,7 @@ import { useState } from "react";
 import Overviewchart from "../components/Overviewchart";
 
 export default function Overview() {
-  const [view, setview] = useState("unit");
+  const [view, setview] = useState<string>("unit");
   return (
     <Box sx={{ margingY: "20px" }}>
       <Header title="overview" subtitle="this is overview section"></Header>
@@ -29,7 +29,7 @@ export default function Overview() {
             <MenuItem value="unit">unit</MenuItem>
           </Select>
         </FormControl>
-        <Overviewchart view={view}></Overviewchart>
+        <Overviewchart dashboard={false} view={view}></Overviewchart>
       </Box>
     </Box>
   );

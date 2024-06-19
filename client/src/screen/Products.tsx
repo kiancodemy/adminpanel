@@ -1,10 +1,10 @@
 import { useGetproductsQuery } from "../slices/userapi";
-import React, { useState } from "react";
+
 import { items } from "../components/Item";
 import Item from "../components/Item";
 import { Box, Typography } from "@mui/material";
 import Header from "../components/Header";
-import { Repeat } from "@mui/icons-material";
+
 export default function Products() {
   ///query function
   const { data, isLoading } = useGetproductsQuery("");
@@ -18,7 +18,10 @@ export default function Products() {
         <Box
           sx={{
             marginTop: "20px",
+            columnGap: "10px",
+
             display: "grid",
+
             gridTemplateColumns: {
               xs: "repeat(1,100%)",
               sm: "repeat(2,1fr)",
@@ -31,9 +34,6 @@ export default function Products() {
 
             color: "white",
           }}
-          container
-          spacing={1}
-          gap={1}
         >
           {data.map(
             ({

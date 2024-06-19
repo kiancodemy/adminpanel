@@ -1,17 +1,9 @@
-import React from "react";
 import Overviewchart from "../components/Overviewchart";
 import Cuatomers from "./Cuatomers";
 import { Box, Typography, Grid } from "@mui/material";
 import { useGetsalesQuery } from "../slices/userapi";
 import Header from "../components/Header";
-import {
-  DownloadOutlined,
-  Email,
-  PointOfSale,
-  PersonAdd,
-  Traffic,
-} from "@mui/icons-material";
-import useMediaQuery from "@mui/material";
+import { DownloadOutlined, PointOfSale, PersonAdd } from "@mui/icons-material";
 
 export default function Dashboard() {
   const { data, isLoading } = useGetsalesQuery("");
@@ -45,6 +37,7 @@ export default function Dashboard() {
               md={5}
             >
               <Grid
+                item
                 xs={12}
                 md={5}
                 sx={{
@@ -67,6 +60,7 @@ export default function Dashboard() {
                 </Typography>
               </Grid>
               <Grid
+                item
                 xs={12}
                 md={5}
                 sx={{
@@ -89,6 +83,7 @@ export default function Dashboard() {
                 </Typography>
               </Grid>
               <Grid
+                item
                 xs={12}
                 md={5}
                 sx={{

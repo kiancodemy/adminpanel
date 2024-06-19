@@ -6,7 +6,7 @@ import { DataGrid, GridColDef } from "@mui/x-data-grid";
 
 import { Box } from "@mui/material";
 import Header from "../components/Header";
-
+//set columns//
 const columns: GridColDef[] = [
   { field: "_id", headerName: "_id", width: 250 },
   { field: "name", headerName: "name", width: 130 },
@@ -18,6 +18,8 @@ const columns: GridColDef[] = [
 ];
 
 export default function Cuatomers() {
+
+  //get customers//
   const { data: info, isLoading } = useGetcustomersQuery("");
 
   return (

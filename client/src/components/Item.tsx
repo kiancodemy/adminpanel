@@ -1,16 +1,15 @@
-
 export type items = {
   _id: string;
   name: string;
-  price: Number;
+  price: string;
   description: string;
   category: string;
-  rating: Number;
+  rating: number;
   supply: Number;
 
   state: any;
 };
-import { useState } from "react";
+
 import { Rating, Typography, Box } from "@mui/material";
 
 export default function Item({
@@ -20,13 +19,10 @@ export default function Item({
   description,
   category,
   rating,
- 
-
- 
 }: items) {
- 
   return (
     <Box
+      key={_id}
       sx={{
         backgroundColor: "#284168",
         borderRadius: "5px",
@@ -38,16 +34,11 @@ export default function Item({
 
         gap: "4px",
       }}
-      key={_id}
-      item
-      xs={11}
-      sm={3}
-      md={1.8}
     >
       <Typography>{category}</Typography>
       <Typography>{name}</Typography>
       <Typography>
-        $<span>{price}</span>
+        <span>${price}</span>
       </Typography>
 
       <Rating sx={{ marginY: "15px" }} value={rating} readOnly></Rating>
