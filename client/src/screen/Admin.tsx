@@ -19,7 +19,7 @@ export default function Admin() {
   const { data: info, isLoading } = useGetadminQuery("");
 
   return (
-    <Box sx={{ marginY: "20px" }}>
+    <Box sx={{ paddingY: "20px" }}>
       <Header title="customers" subtitle="list of customers"></Header>
 
       <Box

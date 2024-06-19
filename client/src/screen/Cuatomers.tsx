@@ -20,12 +20,11 @@ export default function Cuatomers() {
   const { data: info, isLoading } = useGetcustomersQuery("");
 
   return (
-    <Box>
+    <Box sx={{ paddingY: "20px" }}>
       <Header title="customers" subtitle="list of customers"></Header>
 
       <Box
         sx={{
-          paddingY: "20px",
           overflowX: "auto",
 
           height: "80vh",
