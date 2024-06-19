@@ -136,7 +136,7 @@ export default function Sidebar({ open, setopen, data }: set) {
         </Box>
         <Divider />
         <List sx={{ backgroundColor: "#102C57", color: "white" }}>
-          {navItems.map((text: any, index: number) => (
+          {navItems.map((text: any) => (
             <ListItem
               sx={{ backgroundColor: active === text.text ? "#FFC700" : "" }}
               key={text}
