@@ -6,9 +6,9 @@ import Overviewchart from "../components/Overviewchart";
 export default function Overview() {
   const [view, setview] = useState<string>("unit");
   return (
-    <Box sx={{ margingY: "20px" }}>
+    <Box>
       <Header title="overview" subtitle="this is overview section"></Header>
-      <Box sx={{ marginTop: "10px" }}>
+      <Box sx={{ marginY: "20px" }}>
         <FormControl
           sx={{
             marginTop: "10px",

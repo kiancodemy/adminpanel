@@ -1,5 +1,5 @@
-import React from "react";
 import profile from "../assets/profile.jpeg";
+
 export type set = {
   open: any;
   setopen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -8,7 +8,6 @@ export type set = {
 import {
   Box,
   Divider,
-  Drawer,
   IconButton,
   List,
   ListItem,
@@ -20,7 +19,6 @@ import {
 } from "@mui/material";
 import {
   SettingsOutlined,
-  ChevronRightOutlined,
   HomeOutlined,
   ShoppingCartOutlined,
   Groups2Outlined,
@@ -78,62 +76,47 @@ export default function Sidebar({ open, setopen, data }: set) {
 
   useEffect(() => {
     setactive(pathname.substring(1));
-  }, [pathname]);
+  }, [pathname, open]);
 
   return (
     <Box
       sx={{
-        position: { xs: "fixed", md: "relative" },
-        zIndex: 10,
+        position: "fixed",
+
+        zIndex: 1,
+        right: { xs: "0px" },
+
         top: "0px",
         left: "0px",
         bottom: "0px",
-        right: "0px",
-        width: { xs: "100vw", md: "250px" },
+        width: { md: "250px" },
+
+        display: "flex",
+        flexDirection: "column",
 
         backgroundColor: "#102C57",
+        border: "1px solid white",
       }}
     >
-      <Drawer
+      <Box
         sx={{
           backgroundColor: "#102C57",
           color: "white",
-          "& .MuiDrawer-paper": {
-            boxSizing: "border-box",
-            width: { xs: "100vw", md: "250px" },
-            minHeight: "100vh",
-          },
+          display: "flex",
+          flexDirection: "column",
         }}
-        variant="persistent"
-        open={open}
-        onClose={() => setopen(false)}
       >
         <Typography
           sx={{
             color: "white",
             textAlign: "center",
-            padding: "20px 0px",
-            backgroundColor: "#102C57",
+            padding: "15px 0px",
+            backgroundColor: "#FFC700",
           }}
         >
           Welcome
         </Typography>
-        <Box
-          sx={{
-            display: "flex",
-            backgroundColor: "#FFC700",
 
-            padding: "10px",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          <HomeOutlined></HomeOutlined>
-          <Typography>Dashboard</Typography>
-          <IconButton onClick={() => setopen(false)}>
-            <ChevronRightOutlined></ChevronRightOutlined>
-          </IconButton>
-        </Box>
         <Divider />
         <List sx={{ backgroundColor: "#102C57", color: "white" }}>
           {navItems.map((text: any) => (
@@ -190,7 +173,7 @@ export default function Sidebar({ open, setopen, data }: set) {
             <SettingsOutlined sx={{ fontSize: "20px" }}></SettingsOutlined>
           </IconButton>
         </Box>
-      </Drawer>
+      </Box>
     </Box>
   );
 }

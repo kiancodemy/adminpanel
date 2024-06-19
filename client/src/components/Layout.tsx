@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../screen/Navbar";
 import Box from "@mui/material/Box";
-import useMediaQuery from "@mui/material/useMediaQuery";
+
 import Sidebar from "./Sidebar";
 import { useGetuserByIdQuery } from "../slices/userapi";
 import { useSelector } from "react-redux";
@@ -9,8 +9,6 @@ import { RootState } from "../slices/store";
 import { useState } from "react";
 
 export default function Layout() {
-  const notmobile = useMediaQuery("(min-width:600px)");
-
   ///use selector for getting id//
 
   const { id } = useSelector((state: RootState) => state.setter);
@@ -20,7 +18,12 @@ export default function Layout() {
 
   const [open, setopen] = useState(false);
   return (
-    <Box sx={{ display: notmobile ? "flex" : "block" }}>
+    <Box
+      sx={{
+        backgroundColor: "#102C57",
+        position: "relative",
+      }}
+    >
       {open && (
         <Sidebar data={data || {}} open={open} setopen={setopen}></Sidebar>
       )}

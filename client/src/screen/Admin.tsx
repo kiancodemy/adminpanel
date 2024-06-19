@@ -1,4 +1,3 @@
-
 import Header from "../components/Header";
 
 import { useGetadminQuery } from "../slices/userapi";
@@ -20,7 +19,7 @@ export default function Admin() {
   const { data: info, isLoading } = useGetadminQuery("");
 
   return (
-    <Box>
+    <Box sx={{ marginY: "20px" }}>
       <Header title="customers" subtitle="list of customers"></Header>
 
       <Box

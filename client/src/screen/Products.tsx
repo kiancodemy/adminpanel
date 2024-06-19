@@ -17,7 +17,7 @@ export default function Products() {
       {data && !isLoading ? (
         <Box
           sx={{
-            marginTop: "20px",
+            paddingY: "20px",
             columnGap: "10px",
 
             display: "grid",

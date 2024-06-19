@@ -1,6 +1,4 @@
-
 import { useGetcustomersQuery } from "../slices/userapi";
-
 
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 
@@ -18,17 +16,16 @@ const columns: GridColDef[] = [
 ];
 
 export default function Cuatomers() {
-
   //get customers//
   const { data: info, isLoading } = useGetcustomersQuery("");
 
   return (
-    <Box sx={{ marginTop: "20px" }}>
+    <Box>
       <Header title="customers" subtitle="list of customers"></Header>
 
       <Box
         sx={{
-          marginTop: "20px",
+          paddingY: "20px",
           overflowX: "auto",
 
           height: "80vh",

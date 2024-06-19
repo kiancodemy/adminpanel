@@ -1,7 +1,7 @@
 import React from "react";
 import profile from "../assets/profile.jpeg";
+
 import {
-  
   Menu as MenuIcon,
   Search,
   SettingsOutlined,
@@ -9,16 +9,13 @@ import {
 } from "@mui/icons-material";
 import {
   AppBar,
-
   Box,
   Typography,
   IconButton,
   InputBase,
   Toolbar,
   Avatar,
- 
 } from "@mui/material";
-
 
 export default function Navbar({
   setopen,

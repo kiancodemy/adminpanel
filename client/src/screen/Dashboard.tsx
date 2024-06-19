@@ -12,7 +12,7 @@ export default function Dashboard() {
     <Box>
       <Header title="dashboard" subtitle="it is dashboard section"></Header>
       {isLoading ? (
-        <Box sx={{ marginTop: "20px" }}>
+        <Box sx={{ paddingY: "20px" }}>
           <Typography
             variant="h4"
             sx={{

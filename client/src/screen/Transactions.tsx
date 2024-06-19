@@ -35,9 +35,8 @@ export default function Transactions() {
       <Box
         sx={{
           display: "flex",
-          margingY: "10px",
+
           justifyContent: "space-between",
-          padding: "10px 0px",
         }}
       >
         <GridToolbarContainer
@@ -117,7 +116,7 @@ export default function Transactions() {
   ];
 
   return (
-    <Box>
+    <Box sx={{ paddingY: "20px" }}>
       <Header
         title="transaction"
         subtitle="this is transaction section"
